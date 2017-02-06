@@ -5,8 +5,8 @@ def reddit_search(sub, start):
     reddit = praw.Reddit()
     subreddit = reddit.subreddit(sub)
 
-    for d in start
-        for b in subreddit.submissions(start, start + 86400):
+    for d in start:
+        for b in subreddit.submissions(d, d + 86400):
             results[b.title] = b.url
 
     return results
