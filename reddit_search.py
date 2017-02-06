@@ -1,5 +1,6 @@
 import praw
 
+
 def reddit_search(sub, start):
     results = {}
     reddit = praw.Reddit()
