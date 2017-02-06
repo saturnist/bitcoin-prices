@@ -1,4 +1,5 @@
 import pandas as pd
+from datetime import datetime
 
 from coindesk import btc_interval
 
@@ -28,3 +29,15 @@ def high_percents(merge_df):
 def low_percents(merge_df):
     date_dec = merge_df[merge_df['percent_change'] < -0.09]
     return date_dec['Date']
+
+
+def timestamp_convert(df):
+    times = {'high': [], 'low': []}
+
+    for high in high_percents(df):
+        times['high'].append(int(datetime.strptime(high, '%Y-%m-%d').timestamp()))
+
+    for low in low_percents(df):
+        times['low'].append(int(datetime.strptime(high, '%Y-%m-%d').timestamp()))
+
+    return times
