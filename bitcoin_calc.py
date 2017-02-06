@@ -38,6 +38,6 @@ def timestamp_convert(df):
         times['high'].append(int(datetime.strptime(high, '%Y-%m-%d').timestamp()))
 
     for low in low_percents(df):
-        times['low'].append(int(datetime.strptime(high, '%Y-%m-%d').timestamp()))
+        times['low'].append(int(datetime.strptime(low, '%Y-%m-%d').timestamp()))
 
     return times
