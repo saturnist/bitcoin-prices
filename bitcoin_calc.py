@@ -15,14 +15,16 @@ def percent_change(df):
 
 
 def merger(df, df2):
-    return df.merge(df2.to_frame(), left_index=True, right_index=True)
+    merge_df = df.merge(df2.to_frame(), left_index=True, right_index=True)
+    merge_df.columns = ['USD', 'Date', 'percent_change']
+    return merge_df
 
 
 def high_percents(merge_df):
-    date_inc = merge_df[merge_df['USD_y'] > 0.09]
+    date_inc = merge_df[merge_df['percent_change'] > 0.09]
     return date_inc['Date']
 
 
 def low_percents(merge_df):
-    date_dec = merge_df[merge_df['USD_y'] < -0.09]
+    date_dec = merge_df[merge_df['percent_change'] < -0.09]
     return date_dec['Date']
