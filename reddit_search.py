@@ -12,7 +12,7 @@ def reddit_search(sub, start):
         dictionary of reddit submissions with title as key and url as value
 
     """
-    blacklist = [ 'reddit.com', 'redd.it', 'i.reddituploads.com']
+    blacklist = ['reddit.com', 'redd.it', 'i.reddituploads.com', 'imgur.com', 'youtube.com', '.gif', '.png', '.jpg']
     results = {}
     reddit = praw.Reddit()
     subreddit = reddit.subreddit(sub)
